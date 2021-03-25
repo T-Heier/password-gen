@@ -11,21 +11,22 @@ console.log(numberArray)
 console.log(characterArray)
 
 
+var passwordSet = []
 
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
+                                        // Assignment Code
+                                        var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+                                        // Write password to the #password input
+                                        function writePassword() {
+                                          var password = generatePassword();
+                                          var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+                                          passwordText.value = password;
 
-}
+                                        }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+                                        // Add event listener to generate button
+                                        generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
 
@@ -37,6 +38,11 @@ function generatePassword() {
   }
 
   var passwordNumbers = confirm("Do you want to include numbers?")
+
+  if (passwordNumbers == true) {
+    passwordSet.concat(numberArray)
+    
+  }
   // if passwordNumbers = true, then add numbers to generated password
   var passowrdUppercase = confirm("Do you want to include uppercase letters?")
   var passowrdLowercase = confirm("Do you want to include lowercase letters?")
