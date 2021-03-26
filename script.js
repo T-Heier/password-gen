@@ -20,6 +20,7 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
+  console.log("This is my password " + password)
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
@@ -30,7 +31,8 @@ generateBtn.addEventListener("click", writePassword);
 
 
 function generatePassword() {
-  passwordSet = []
+  var passwordSet = [];
+  var password = "";
   var lengthPassword = prompt("Enter length of password");
 
   if (lengthPassword < 8 || lengthPassword > 128)  {
@@ -42,17 +44,20 @@ function generatePassword() {
 
   if (passwordNumbers == true) {
     passwordSet = passwordSet.concat(numberArray)
+    console.log(passwordSet)
   }
 
   // if passwordNumbers = true, then add numbers to generated password
   var passwordUppercase = confirm("Do you want to include uppercase letters?")
   if (passwordUppercase == true) {
     passwordSet = passwordSet.concat(upperArray)
+    console.log(passwordSet)
   }
 
   var passwordLowercase = confirm("Do you want to include lowercase letters?")
   if (passwordLowercase == true) {
     passwordSet = passwordSet.concat(characterArray)
+    console.log(passwordSet)
   }
 
   var passwordSymbols = confirm("Do you want to include special characters?")
@@ -63,8 +68,8 @@ function generatePassword() {
 
   for (var i = 0; i < lengthPassword; i++) {
     
-    var password = passwordSet[Math.floor(Math.random()*lengthPassword)];
+    password += passwordSet[Math.floor(Math.random()*passwordSet.length)];
     
   }
-  return(password)
+  return password;
 }
