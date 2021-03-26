@@ -61,5 +61,10 @@ function generatePassword() {
     console.log(passwordSet)
   }
 
-  
+  for (var i = 0; i < lengthPassword; i++) {
+    
+    var password = passwordSet[Math.floor(Math.random()*lengthPassword)];
+    
+  }
+  return(password)
 }
